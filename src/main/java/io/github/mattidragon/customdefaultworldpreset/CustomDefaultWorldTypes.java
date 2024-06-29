@@ -35,7 +35,7 @@ public class CustomDefaultWorldTypes implements ModInitializer {
 	public static RegistryKey<WorldPreset> getConfig() {
 		try {
 			var key = Files.readString(CONFIG_PATH);
-			return RegistryKey.of(RegistryKeys.WORLD_PRESET, new Identifier(key.trim()));
+			return RegistryKey.of(RegistryKeys.WORLD_PRESET, Identifier.of(key.trim()));
 		} catch (IOException | InvalidIdentifierException e) {
 			throw new RuntimeException("Failed to read config for custom default world types", e);
 		}
